@@ -104,11 +104,9 @@ All queries were practiced using:
 | File Name | Description |
 |---|---|
 | datacreation.sql | Table creation and sample data |
-| practice_queries.sql | Practice questions |
-| solutions.sql | SQL query solutions |
+| practice_queries.sql | SQL practice questions (1–30) |
+| solutions.sql | SQL query solutions (1–30) |
 | outputs/ | Query execution screenshots |
-
----
 
 # 🛠 Skills Practiced
 
@@ -137,10 +135,11 @@ All queries were practiced using:
 # 📈 Outcome
 
 By the end of Day 1:
-- Basic SQL query writing became more comfortable
-- Database concepts became clearer
-- Understood how to execute and validate queries
-- Built confidence in practicing SQL independently
+- Practiced SQL queries from 1–30
+- Learned SQL fundamentals and filtering techniques
+- Understood aggregate and grouping operations
+- Improved confidence in writing and executing SQL queries
+- Built foundation for advanced SQL concepts
 
 ---
 
