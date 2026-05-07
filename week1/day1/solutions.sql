@@ -1,48 +1,136 @@
--- SQL Solutions
 -- =====================================================
 -- WEEK 1 - DAY 1 SQL SOLUTIONS
 -- =====================================================
 
--- Solution 1
-SELECT * FROM employee;
+--------------------------------------------------------
+-- Basic Queries
+--------------------------------------------------------
 
--- Solution 2
-SELECT name, salary
-FROM employee;
+-- 1
+SELECT * FROM Employee;
 
--- Solution 3
-SELECT *
-FROM employee
-WHERE salary > 50000;
+-- 2
+SELECT name, salary FROM Employee;
 
--- Solution 4
-SELECT *
-FROM employee
-WHERE department_id = 2;
+-- 3
+SELECT * FROM Employee WHERE age > 30;
 
--- Solution 5
-SELECT *
-FROM employee
-WHERE age > 30;
+-- 4
+SELECT name FROM Department;
 
--- Solution 6
-SELECT *
-FROM employee
-ORDER BY salary DESC;
+-- 5
+SELECT e.name FROM Employee e JOIN Department d
+ON e.department_id = d.department_id WHERE d.name = 'IT';
 
--- Solution 7
-SELECT COUNT(*) AS total_employees
-FROM employee;
+--------------------------------------------------------
+-- String Matching Queries
+--------------------------------------------------------
 
--- Solution 8
-SELECT AVG(salary) AS average_salary
-FROM employee;
+-- 6
+SELECT * FROM Employee
+WHERE name LIKE 'J%';
 
--- Solution 9
-SELECT MAX(salary) AS maximum_salary
-FROM employee;
+-- 7
+SELECT * FROM Employee
+WHERE name LIKE '%e';
 
--- Solution 10
-SELECT department_id, COUNT(*) AS employee_count
-FROM employee
+-- 8
+SELECT * FROM Employee
+WHERE name LIKE '%a%';
+
+-- 9
+SELECT * FROM Employee
+WHERE LENGTH(name) = 9;
+
+-- 10
+SELECT * FROM Employee
+WHERE name LIKE '_o%';
+
+--------------------------------------------------------
+-- Date Queries
+--------------------------------------------------------
+
+-- 11
+SELECT *FROM Employee
+WHERE YEAR(hire_date) = 2020;
+
+-- 12
+SELECT *FROM Employee
+WHERE MONTH(hire_date) = 1;
+
+-- 13
+SELECT *FROM Employee
+WHERE YEAR(hire_date) < 2019;
+
+-- 14
+SELECT *FROM Employee
+WHERE hire_date >= '2021-03-01';
+
+-- 15
+SELECT *FROM Employee
+WHERE hire_date >= DATE_SUB(CURDATE(), INTERVAL 2 YEAR);
+
+--------------------------------------------------------
+-- Aggregate Queries
+--------------------------------------------------------
+
+-- 16
+SELECT SUM(salary) AS total_salary FROM Employee;
+
+-- 17
+SELECT AVG(salary) AS average_salary FROM Employee;
+
+-- 18
+SELECT MIN(salary) AS minimum_salary FROM Employee;
+
+-- 19
+SELECT department_id, COUNT(*) AS employee_count FROM Employee
 GROUP BY department_id;
+
+-- 20
+SELECT department_id, AVG(salary) AS average_salary FROM Employee
+GROUP BY department_id;
+
+--------------------------------------------------------
+-- Group By Queries
+--------------------------------------------------------
+
+-- 21
+SELECT department_id, SUM(salary) AS total_salary FROM Employee
+GROUP BY department_id;
+
+-- 22
+SELECT department_id, AVG(age) AS average_age FROM Employee
+GROUP BY department_id;
+
+-- 23
+SELECT YEAR(hire_date) AS hire_year, COUNT(*) AS employee_count FROM Employee
+GROUP BY YEAR(hire_date);
+
+-- 24
+SELECT department_id, MAX(salary) AS highest_salary FROM Employee
+GROUP BY department_id;
+
+-- 25
+SELECT department_id, AVG(salary) AS avg_salary FROM Employee
+GROUP BY department_id ORDER BY avg_salary DESC
+LIMIT 1;
+
+--------------------------------------------------------
+-- Having Queries
+--------------------------------------------------------
+
+-- 26
+SELECT department_id, COUNT(*) AS employee_count FROM Employee GROUP BY department_id HAVING COUNT(*) > 2;
+
+-- 27
+SELECT department_id, AVG(salary) AS average_salary FROM Employee GROUP BY department_id HAVING AVG(salary) > 55000;
+
+-- 28
+SELECT YEAR(hire_date) AS hire_year, COUNT(*) AS employee_count FROM Employee GROUP BY YEAR(hire_date) HAVING COUNT(*) > 1;
+
+-- 29
+SELECT department_id, SUM(salary) AS total_salary FROM Employee GROUP BY department_id HAVING SUM(salary) < 100000;
+
+-- 30
+SELECT department_id, MAX(salary) AS max_salary FROM Employee GROUP BY department_id HAVING MAX(salary) > 75000;
