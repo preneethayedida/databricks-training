@@ -64,7 +64,7 @@ This folder contains selected query execution screenshots for Week 2 - Day 2 Num
 | query5.png | TRUNCATE function output |
 | query9.png | SIGN function output |
 | query12.png | GREATEST function output |
-| query15.png | LEAST function output |
+
 
 ---
 
