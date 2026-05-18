@@ -49,12 +49,6 @@ This folder contains selected query execution screenshots for Week 2 - Day 2 Num
 
 ---
 
-## Query 15 - Least Salary or Bonus Value
-
-![Query 15](query15.png)
-
----
-
 # Practice Platform
 
 - DB Fiddle
