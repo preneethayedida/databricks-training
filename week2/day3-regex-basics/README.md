@@ -69,7 +69,7 @@ These practice problems help build strong pattern matching and string extraction
 | datacreation.sql | Table creation and sample datasets |
 | practice_queries.sql | REGEX practice questions |
 | solutions.sql | Solutions for all REGEX exercises |
-| datasets/sample_data_reference.md | Dataset reference documentation |
+
 
 ---
 
